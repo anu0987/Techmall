@@ -1,0 +1,8 @@
+.li b{
+    cursor:pointer;
+    color:black;
+}
+
+.li b:hover{
+    color:red;
+}
