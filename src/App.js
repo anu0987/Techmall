@@ -1,25 +1,47 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {Switch , Route} from 'react-router-dom'
+
+import Menu from './menuComponent/Menu';
+import Home from './homeComponent/Home';
+import UserLogin from './userLoginComponent/UserLogin';
+import UserVerify from './userLoginComponent/UserVerify';
+import AdminLogin from './adminLoginComponent/AdminLogin';
+
+import AdminHome from './adminHomeComponent/AdminHome';
+import AdminCategory from './adminCategoryComponent/AdminCategory';
+import AdminProduct from './adminProductComponent/AdminProduct';
+import Cart from './cartComponent/Cart';
+
+export default class App extends React.Component
+{
+  render(){
+     return <div class="wrapper">
+        <div id="content">
+             <Menu/>
+
+              <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/userlogin" component={UserLogin}/>
+                <Route path="/userverify" component={UserVerify}/>
+                <Route path="/adminlogin" component={AdminLogin}/>
+
+                <Route path="/adminhome" component={AdminHome}/>
+                <Route path="/admincate" component={AdminCategory}/>
+                <Route path="/adminprod" component={AdminProduct}/>
+
+                <Route path="/cart" component={Cart}/>
+              </Switch>
+
+             
+             <footer>                               
+                     <div class="copyright">
+                         <p>Copyright 2021 All Right Reserved By <a href="https://html.design/">Free html Templates</a></p>
+                     </div>                         
+             </footer>             
+         </div>
+     </div>
+  }
 }
-
-export default App;
